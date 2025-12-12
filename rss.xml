@@ -205,7 +205,7 @@ URL：&lt;code&gt;/posts/how-to-use-firefly-blog-theme&lt;/code&gt;&lt;/p&gt;
 &lt;li&gt;如果多个文章使用相同的 slug，后面的文章会覆盖前面的&lt;/li&gt;
 &lt;li&gt;Slug 会自动转换为小写&lt;/li&gt;
 &lt;/ul&gt;
-</content:encoded></item><item><title>基于树莓派的物联网全能智能门锁系统</title><link>https://nihuii.github.io/posts/raspberry-pi-smart-lock-version1/</link><guid isPermaLink="true">https://nihuii.github.io/posts/raspberry-pi-smart-lock-version1/</guid><description>从零打造一个支持人脸识别、NFC刷卡、密码解锁以及微信小程序远程控制的智能门锁系统。</description><pubDate>Sat, 13 Dec 2025 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+</content:encoded></item><item><title>基于树莓派的物联网全能智能门锁系统(服务器本地部署)</title><link>https://nihuii.github.io/posts/raspberry-pi-smart-lock-version1/</link><guid isPermaLink="true">https://nihuii.github.io/posts/raspberry-pi-smart-lock-version1/</guid><description>从零打造一个支持人脸识别、NFC刷卡、密码解锁以及微信小程序远程控制的智能门锁系统。</description><pubDate>Sat, 13 Dec 2025 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;最近我完成了一个基于树莓派的智能门锁项目，作为一个涵盖嵌入式开发、后端服务和移动端开发的综合性项目，它非常适合用来练手。本文将详细介绍该系统的实现原理和开发过程。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2&gt;实物图：&lt;/h2&gt;
