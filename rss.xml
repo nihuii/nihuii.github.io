@@ -331,7 +331,8 @@ def remote_unlock():
         return jsonify({&quot;status&quot;: &quot;success&quot;, &quot;message&quot;: &quot;开锁指令已发送&quot;})
     return jsonify({&quot;status&quot;: &quot;error&quot;, &quot;message&quot;: &quot;权限验证失败&quot;}), 403
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;小程序端界面展示了当前的门锁状态以及最近的开锁记录：&lt;img src=&quot;../../../public/assets/images/wechat_mini_demo.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;小程序端界面展示了当前的门锁状态以及最近的开锁记录：
+&lt;img src=&quot;../../../public/assets/images/wechat_mini_demo.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 &lt;hr /&gt;
 &lt;h2&gt;🚀 部署踩坑指南&lt;/h2&gt;
 &lt;p&gt;在开发过程中遇到过不少坑，这里总结几点供大家参考：&lt;/p&gt;
