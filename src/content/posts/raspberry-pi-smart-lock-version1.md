@@ -134,7 +134,8 @@ def remote_unlock():
     return jsonify({"status": "error", "message": "权限验证失败"}), 403
 ```
 
-小程序端界面展示了当前的门锁状态以及最近的开锁记录：![](../../../public/assets/images/wechat_mini_demo.png)
+小程序端界面展示了当前的门锁状态以及最近的开锁记录：
+![](../../../public/assets/images/wechat_mini_demo.png)
 
 ------
 
