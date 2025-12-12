@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>nihuii - Firefly</title><description>Firefly 是一款基于 Astro 框架和 Fuwari 模板开发的清新美观且现代化个人博客主题模板，专为技术爱好者和内容创作者设计。该主题融合了现代 Web 技术栈，提供了丰富的功能模块和高度可定制的界面，让您能够轻松打造出专业且美观的个人博客网站。</description><link>https://nihuii.github.io/</link><language>zh_CN</language><item><title>Firefly 一款清新美观的 Astro 博客主题模板</title><link>https://nihuii.github.io/posts/firefly/</link><guid isPermaLink="true">https://nihuii.github.io/posts/firefly/</guid><description>Firefly 是一款基于 Astro 框架和 Fuwari 模板开发的清新美观且现代化个人博客主题模板，专为技术爱好者和内容创作者设计。该主题融合了现代 Web 技术栈，提供了丰富的功能模块和高度可定制的界面，让您能够轻松打造出专业且美观的个人博客网站。</description><pubDate>Fri, 02 Jan 1970 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;🌟 项目概述&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Firefly - Demo site</title><description>Firefly 是一款基于 Astro 框架和 Fuwari 模板开发的清新美观且现代化个人博客主题模板，专为技术爱好者和内容创作者设计。该主题融合了现代 Web 技术栈，提供了丰富的功能模块和高度可定制的界面，让您能够轻松打造出专业且美观的个人博客网站。</description><link>https://nihuii.github.io/</link><language>zh_CN</language><item><title>Firefly 一款清新美观的 Astro 博客主题模板</title><link>https://nihuii.github.io/posts/firefly/</link><guid isPermaLink="true">https://nihuii.github.io/posts/firefly/</guid><description>Firefly 是一款基于 Astro 框架和 Fuwari 模板开发的清新美观且现代化个人博客主题模板，专为技术爱好者和内容创作者设计。该主题融合了现代 Web 技术栈，提供了丰富的功能模块和高度可定制的界面，让您能够轻松打造出专业且美观的个人博客网站。</description><pubDate>Fri, 02 Jan 1970 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;🌟 项目概述&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Firefly&lt;/strong&gt; 是一款基于 Astro 框架和 Fuwari 模板开发的清新美观且现代化个人博客主题模板，专为技术爱好者和内容创作者设计。该主题融合了现代 Web 技术栈，提供了丰富的功能模块和高度可定制的界面，让您能够轻松打造出专业且美观的个人博客网站。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;🖥️在线预览： &lt;a href=&quot;https://firefly.cuteleaf.cn/&quot;&gt;Firefly - Demo site&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;🏠我的博客： &lt;a href=&quot;https://blog.cuteleaf.cn/&quot;&gt;https://blog.cuteleaf.cn&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
@@ -205,6 +205,162 @@ URL：&lt;code&gt;/posts/how-to-use-firefly-blog-theme&lt;/code&gt;&lt;/p&gt;
 &lt;li&gt;如果多个文章使用相同的 slug，后面的文章会覆盖前面的&lt;/li&gt;
 &lt;li&gt;Slug 会自动转换为小写&lt;/li&gt;
 &lt;/ul&gt;
+</content:encoded></item><item><title>硬核毕业设计：基于树莓派的物联网全能智能门锁系统</title><link>https://nihuii.github.io/posts/raspberry-pi-smart-lock-version1/</link><guid isPermaLink="true">https://nihuii.github.io/posts/raspberry-pi-smart-lock-version1/</guid><description>从零打造一个支持人脸识别、NFC刷卡、密码解锁以及微信小程序远程控制的智能门锁系统。</description><pubDate>Sat, 13 Dec 2025 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;最近我完成了一个基于树莓派的智能门锁项目，作为一个涵盖嵌入式开发、后端服务和移动端开发的综合性项目，它非常适合用来练手。本文将详细介绍该系统的实现原理和开发过程。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;实物图：&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://nihuii.github.io/_astro/actual_product_photo.Bf9Elllz_Z2woDqq.webp&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;h2&gt;🔗 项目开源&lt;/h2&gt;
+&lt;p&gt;本项目的所有代码（包括树莓派端 Python 代码、云端 Flask 服务、微信小程序）均已开源，欢迎 Star！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;GitHub 仓库地址&lt;/strong&gt;：&lt;a href=&quot;https://github.com/nihuii/raspberry-pi-smart-lock&quot;&gt;https://github.com/nihuii/raspberry-pi-smart-lock&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🛠️ 项目概述&lt;/h2&gt;
+&lt;p&gt;这个智能门锁系统并不是简单的“舵机控制”，而是一个完整的物联网（IoT）解决方案。它主要实现了以下四种开锁方式：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;人脸识别&lt;/strong&gt;：基于 OpenCV 和 Dlib，实现毫秒级的人脸比对。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;NFC 刷卡&lt;/strong&gt;：支持标准 IC 卡/门禁卡解锁。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;矩阵键盘密码&lt;/strong&gt;：支持虚位密码，防止窥视。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;远程控制&lt;/strong&gt;：通过微信小程序远程查看状态、生成临时密钥和远程开锁。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;系统架构图&lt;/h3&gt;
+&lt;p&gt;整个系统分为三层架构：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;感知层（树莓派）&lt;/strong&gt;：负责控制硬件传感器（摄像头、NFC、键盘、舵机）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;网络层（MQTT + HTTP）&lt;/strong&gt;：使用 MQTT 协议进行实时状态同步，HTTP 协议上传抓拍日志。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;应用层（云服务器 + 小程序）&lt;/strong&gt;：部署 Flask 后端处理业务逻辑，微信小程序作为用户终端。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔩 硬件清单&lt;/h2&gt;
+&lt;p&gt;为了复刻这个项目，你需要准备以下核心硬件：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;硬件名称&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Raspberry Pi 4B/3B+&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;核心控制器，建议 2GB 内存以上&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Pi Camera V2&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;用于人脸识别抓拍&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;PN532 NFC 模块&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;SPI/I2C 通讯，用于读取 IC 卡&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;4x4 矩阵薄膜键盘&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;用于输入密码&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;SG90 / MG996R 舵机&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;模拟锁舌的开关动作&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;5V 继电器 (可选)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;如果使用的是电磁锁，需要继电器驱动&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💻 核心功能实现&lt;/h2&gt;
+&lt;h3&gt;1. 人脸识别 (Face Auth)&lt;/h3&gt;
+&lt;p&gt;这是项目中最消耗算力的部分。为了提高效率，我使用了 &lt;code&gt;face_recognition&lt;/code&gt; 库，它基于 dlib 的 HOG 特征提取。&lt;/p&gt;
+&lt;p&gt;我们在 &lt;code&gt;code/face_auth.py&lt;/code&gt; 中预加载了已知人脸的数据：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import face_recognition
+import os
+
+# 加载已知人脸库
+def load_known_faces(known_faces_dir):
+    known_face_encodings = []
+    known_face_names = []
+
+    for filename in os.listdir(known_faces_dir):
+        if filename.endswith(&quot;.jpg&quot;) or filename.endswith(&quot;.png&quot;):
+            # 加载图片并编码
+            image = face_recognition.load_image_file(f&quot;{known_faces_dir}/{filename}&quot;)
+            encoding = face_recognition.face_encodings(image)[0]
+            
+            known_face_encodings.append(encoding)
+            # 文件名作为人名（如 CX.jpg -&amp;gt; CX）
+            known_face_names.append(os.path.splitext(filename)[0])
+            
+    return known_face_encodings, known_face_names
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在主循环中，系统会实时检测摄像头画面，一旦匹配度低于阈值（例如 0.4），即视为识别成功并驱动舵机开锁。&lt;/p&gt;
+&lt;h3&gt;2. 多线程任务调度&lt;/h3&gt;
+&lt;p&gt;由于树莓派需要同时监听键盘输入、NFC 刷卡和网络消息，单线程肯定会造成阻塞。在 &lt;code&gt;code/main_mqtt_pro.py&lt;/code&gt; 中，我使用了 Python 的 &lt;code&gt;threading&lt;/code&gt; 模块来并行处理任务：&lt;/p&gt;
+&lt;p&gt;Python&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 启动各个模块的监听线程
+# 1. 启动键盘监听
+keypad_thread = threading.Thread(target=run_keypad)
+keypad_thread.daemon = True
+keypad_thread.start()
+
+# 2. 启动 NFC 监听
+nfc_thread = threading.Thread(target=run_nfc)
+nfc_thread.daemon = True
+nfc_thread.start()
+
+# 3. 启动 MQTT 消息监听
+mqtt_thread = threading.Thread(target=mqtt_client.loop_forever)
+mqtt_thread.daemon = True
+mqtt_thread.start()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;3. 云端通信与微信小程序&lt;/h3&gt;
+&lt;p&gt;为了实现远程控制，树莓派通过 MQTT 协议连接到云服务器。当我们在小程序点击“开锁”时：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;小程序&lt;/strong&gt; 发送 HTTPS 请求给 &lt;strong&gt;云服务器 (Flask)&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;云服务器&lt;/strong&gt; 验证权限后，向 MQTT Broker 发布一条 &lt;code&gt;unlock&lt;/code&gt; 指令。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;树莓派&lt;/strong&gt; 收到 MQTT 指令，执行开锁动作，并上传一条“远程开锁”的日志。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;云端 Flask 代码片段 (&lt;code&gt;cloud_server/app.py&lt;/code&gt;)：&lt;/p&gt;
+&lt;p&gt;Python&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@app.route(&apos;/api/remote_unlock&apos;, methods=[&apos;POST&apos;])
+def remote_unlock():
+    data = request.json
+    if verify_token(data.get(&apos;token&apos;)):
+        # 发送 MQTT 消息给树莓派
+        mqtt_client.publish(MQTT_TOPIC_COMMAND, &quot;OPEN_DOOR&quot;)
+        return jsonify({&quot;status&quot;: &quot;success&quot;, &quot;message&quot;: &quot;开锁指令已发送&quot;})
+    return jsonify({&quot;status&quot;: &quot;error&quot;, &quot;message&quot;: &quot;权限验证失败&quot;}), 403
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;小程序端界面展示了当前的门锁状态以及最近的开锁记录：&lt;img src=&quot;../../../public/assets/images/wechat_mini_demo.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🚀 部署踩坑指南&lt;/h2&gt;
+&lt;p&gt;在开发过程中遇到过不少坑，这里总结几点供大家参考：&lt;/p&gt;
+&lt;h3&gt;环境依赖&lt;/h3&gt;
+&lt;p&gt;树莓派安装 OpenCV 和 dlib 比较慢，建议换源后使用编译好的 wheel 包，或者直接运行项目中的安装脚本：&lt;/p&gt;
+&lt;p&gt;Bash&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd code
+chmod +x install_dependencies.sh
+./install_dependencies.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;权限问题&lt;/h3&gt;
+&lt;p&gt;操作 GPIO 和 SPI 接口（用于 NFC）通常需要 root 权限。如果遇到 &lt;code&gt;Permission denied&lt;/code&gt;，请检查是否已将当前用户加入 &lt;code&gt;gpio&lt;/code&gt; 和 &lt;code&gt;spi&lt;/code&gt; 用户组，或者使用 &lt;code&gt;sudo&lt;/code&gt; 运行脚本。&lt;/p&gt;
+&lt;h3&gt;MQTT 掉线重连&lt;/h3&gt;
+&lt;p&gt;网络波动会导致 MQTT 断开，务必在代码中加入 &lt;code&gt;on_disconnect&lt;/code&gt; 回调进行自动重连：&lt;/p&gt;
+&lt;p&gt;Python&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;def on_disconnect(client, userdata, rc):
+    print(&quot;MQTT Disconnected. Trying to reconnect...&quot;)
+    while True:
+        try:
+            client.reconnect()
+            break
+        except:
+            time.sleep(5)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h2&gt;📝 总结&lt;/h2&gt;
+&lt;p&gt;这个项目通过软硬结合，完整地走通了物联网开发的流程。从底层的 GPIO 控制，到中间的网络通信，再到上层的用户交互，每一个环节都充满了挑战和乐趣。&lt;/p&gt;
+&lt;p&gt;如果你对这个项目感兴趣，或者在复刻过程中遇到问题，欢迎在 GitHub 上提 Issue 或与我交流！&lt;/p&gt;
+&lt;p&gt;别忘了给仓库点个 Star 🌟：https://github.com/nihuii/raspberry-pi-smart-lock&lt;/p&gt;
 </content:encoded></item><item><title>Firefly 布局系统详解</title><link>https://nihuii.github.io/posts/firefly-layout-system/</link><guid isPermaLink="true">https://nihuii.github.io/posts/firefly-layout-system/</guid><description>深入了解 Firefly 的布局系统，包括侧边栏布局（左侧/双侧）和文章列表布局（列表/网格），以及为什么双侧边栏与网格模式会冲突的技术原理。</description><pubDate>Fri, 02 Jan 1970 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;📖 概述&lt;/h2&gt;
 &lt;p&gt;Firefly 提供了灵活的布局系统，允许您根据内容需求和个人喜好自定义博客的视觉呈现方式。布局系统主要包括&lt;strong&gt;侧边栏布局&lt;/strong&gt;和&lt;strong&gt;文章列表布局&lt;/strong&gt;两个维度，它们相互配合，共同决定了页面的整体结构。&lt;/p&gt;
 &lt;p&gt;本文将详细介绍 Firefly 的各种布局模式、它们的特点、使用场景，以及为什么某些布局之间会存在冲突。&lt;/p&gt;
