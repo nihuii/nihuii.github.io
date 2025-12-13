@@ -205,6 +205,128 @@ URL：&lt;code&gt;/posts/how-to-use-firefly-blog-theme&lt;/code&gt;&lt;/p&gt;
 &lt;li&gt;如果多个文章使用相同的 slug，后面的文章会覆盖前面的&lt;/li&gt;
 &lt;li&gt;Slug 会自动转换为小写&lt;/li&gt;
 &lt;/ul&gt;
+</content:encoded></item><item><title>进阶玩法：基于树莓派的智能门锁系统 (微信云托管版)</title><link>https://nihuii.github.io/posts/raspberry-pi-smart-lock-cloud/</link><guid isPermaLink="true">https://nihuii.github.io/posts/raspberry-pi-smart-lock-cloud/</guid><description>告别本地服务器和内网穿透！利用 Docker 和微信云托管，打造一个真正可随时随地访问的“Serverless”智能门锁。</description><pubDate>Sun, 14 Dec 2025 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;在上一篇文章&lt;a href=&quot;/posts/raspberry-pi-smart-lock-version1&quot;&gt;《基于树莓派的物联网全能智能门锁系统(服务器本地部署)》&lt;/a&gt;中，我们介绍了一个需要在本地电脑运行 Flask 服务器的方案。&lt;/p&gt;
+&lt;p&gt;虽然那个方案可行，但它有一个痛点：&lt;strong&gt;电脑必须一直开机，且为了外网访问需要复杂的内网穿透配置&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;今天，我们来一次架构升级！保持树莓派硬件端代码不变，将服务端迁移至&lt;strong&gt;微信云托管 (WeChat Cloud Hosting)&lt;/strong&gt;，实现真正的云端控制。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;💡 为什么要升级到云托管？&lt;/h2&gt;
+&lt;p&gt;与之前的本地部署版本相比，新版本主要解决了以下问题：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;无需公网 IP / 内网穿透&lt;/strong&gt;：微信云托管通过内网链路直接与小程序通信，不需要你有域名或公网 IP。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Serverless 体验&lt;/strong&gt;：基于容器化部署（Docker），无需维护服务器运维，按量计费（有免费额度），成本极低。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;更安全&lt;/strong&gt;：小程序与云托管之间走微信私有链路，天然支持 HTTPS，比本地 HTTP 更安全。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;🔗 项目开源&lt;/h2&gt;
+&lt;p&gt;本项目包含&lt;strong&gt;硬件端（不变）&lt;/strong&gt;、&lt;strong&gt;云托管服务端（Cloud）&lt;/strong&gt;、**新版小程序（WeChat）**三部分代码。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;GitHub 仓库地址&lt;/strong&gt;：&lt;a href=&quot;https://github.com/nihuii/raspberry-pi-smart-lock&quot;&gt;https://github.com/nihuii/raspberry-pi-smart-lock&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GitHub 仓库地址&lt;/strong&gt;：&lt;a href=&quot;https://github.com/nihuii/wechat-mini-program&quot;&gt;nihuii/wechat-mini-program: 代码为《基于树莓派的智能门锁》项目的微信小程序端代码和微信云托管（服务器端）代码&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🏗️ 系统架构对比&lt;/h2&gt;
+&lt;h3&gt;1. 硬件端 (Hardware) - &lt;strong&gt;保持不变&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;树莓派端的 Python 代码（&lt;code&gt;GraduationProject&lt;/code&gt; 目录）不需要任何修改。它依然负责：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;人脸识别与 GPIO 控制。&lt;/li&gt;
+&lt;li&gt;作为 MQTT Client，监听来自 Broker 的开锁指令。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2. 服务端 (Cloud Server) - &lt;strong&gt;核心升级&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;旧版&lt;/strong&gt;：Python Flask 代码直接运行在本地电脑上 (&lt;code&gt;cloud_server&lt;/code&gt;)。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;新版&lt;/strong&gt;：Python Flask 代码被打包成 &lt;strong&gt;Docker 镜像&lt;/strong&gt;，运行在微信云托管的容器中 (&lt;code&gt;Cloud&lt;/code&gt; 目录)。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3. 小程序端 (Mini Program) - &lt;strong&gt;通信方式改变&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;旧版&lt;/strong&gt;：使用 &lt;code&gt;wx.request&lt;/code&gt; 请求本地 IP 地址 (&lt;code&gt;wechat_miniprogram&lt;/code&gt;)。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;新版&lt;/strong&gt;：使用 &lt;code&gt;wx.cloud.callContainer&lt;/code&gt; 直接调用云托管服务 (&lt;code&gt;WeChat&lt;/code&gt;)，无需配置域名。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;☁️ 核心代码解析&lt;/h2&gt;
+&lt;h3&gt;1. 服务端容器化 (Dockerfile)&lt;/h3&gt;
+&lt;p&gt;在 &lt;code&gt;Cloud&lt;/code&gt; 文件夹中，我新增了 &lt;code&gt;Dockerfile&lt;/code&gt;，这是部署到云托管的关键。它告诉云平台如何构建我们的 Python 环境：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 使用轻量级的 Python 基础镜像
+FROM python:3.9-slim
+
+# 设置工作目录
+WORKDIR /app
+
+# 复制当前目录内容到容器中
+COPY . /app
+
+# 安装依赖 (Flask, paho-mqtt 等)
+RUN pip install --no-cache-dir -r requirements.txt
+
+# 暴露端口 (微信云托管默认监听 80)
+EXPOSE 80
+
+# 启动 Flask 应用
+CMD [&quot;python3&quot;, &quot;app.py&quot;]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;2. 小程序调用云服务&lt;/h3&gt;
+&lt;p&gt;在 &lt;code&gt;WeChat&lt;/code&gt; 新版小程序代码中，我们不再需要硬编码服务器的 IP 地址，而是直接通过“环境 ID”调用服务。&lt;/p&gt;
+&lt;p&gt;查看 &lt;code&gt;miniprogram/app.js&lt;/code&gt; 或 API 调用部分，你会发现代码变成了这样：&lt;/p&gt;
+&lt;p&gt;JavaScript&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;// 旧版写法：
+// wx.request({
+//   url: &apos;[http://192.168.1.100:5000/api/remote_unlock](http://192.168.1.100:5000/api/remote_unlock)&apos;,
+//   ...
+// })
+
+// 新版写法 (使用 callContainer)：
+wx.cloud.callContainer({
+  &quot;config&quot;: {
+    &quot;env&quot;: &quot;你的云托管环境ID&quot; 
+  },
+  &quot;path&quot;: &quot;/api/remote_unlock&quot;, // 直接写路由
+  &quot;header&quot;: {
+    &quot;X-WX-SERVICE&quot;: &quot;flask-service&quot; // 服务名称
+  },
+  &quot;method&quot;: &quot;POST&quot;,
+  &quot;data&quot;: {
+    &quot;token&quot;: &quot;你的密钥&quot;
+  }
+})
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这种方式不仅速度快，而且自动处理了跨域和鉴权问题。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🚀 部署指南 (云托管版)&lt;/h2&gt;
+&lt;p&gt;硬件部分的连接和树莓派代码部署请参考[上一篇博客]&lt;a href=&quot;https://nihuii.github.io/posts/raspberry-pi-smart-lock-version1/&quot;&gt;基于树莓派的物联网全能智能门锁系统(服务器本地部署) - Firefly&lt;/a&gt;，这里只介绍云端和小程序的部署。&lt;/p&gt;
+&lt;h3&gt;第一步：开通微信云托管&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;登录 &lt;a href=&quot;https://mp.weixin.qq.com/&quot;&gt;微信公众平台&lt;/a&gt;，进入“云托管”。&lt;/li&gt;
+&lt;li&gt;创建一个新的环境（Environment），记下 &lt;strong&gt;环境 ID&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;创建一个服务，命名为 &lt;code&gt;flask-service&lt;/code&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;第二步：部署服务端 (Cloud)&lt;/h3&gt;
+&lt;p&gt;你有两种方式部署代码：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;方式 A（推荐）：&lt;/strong&gt; 将 GitHub 仓库授权给微信云托管，选择 &lt;code&gt;Cloud&lt;/code&gt; 目录作为根目录，勾选“代码变更自动部署”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;方式 B（手动）：&lt;/strong&gt; 在云托管控制台点击“版本管理” -&amp;gt; “上传代码包”，将 &lt;code&gt;Cloud&lt;/code&gt; 文件夹打包上传。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;部署成功后，你会在控制台看到“部署成功”的状态，并且可以通过公网访问流水线测试接口。&lt;/p&gt;
+&lt;h3&gt;第三步：配置小程序 (WeChat)&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;使用微信开发者工具打开 &lt;code&gt;wechat_mini_program/WeChat&lt;/code&gt; 目录。&lt;/li&gt;
+&lt;li&gt;找到 &lt;code&gt;miniprogram/envList.js&lt;/code&gt; (或者 &lt;code&gt;app.js&lt;/code&gt; 中的配置位置)，填入你的云托管 &lt;strong&gt;环境 ID&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;重要&lt;/strong&gt;：确保你的 MQTT Broker 地址是公网可访问的（因为云容器在腾讯云内部，树莓派在家里，它们需要通过一个公网 MQTT Broker 也就是“消息队列”来传话）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;第四步：联调测试&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;树莓派运行 &lt;code&gt;main_pro.py&lt;/code&gt;，确保连接上 MQTT。&lt;/li&gt;
+&lt;li&gt;云托管服务显示“运行中”。&lt;/li&gt;
+&lt;li&gt;在小程序点击“远程开锁”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;流程跑通&lt;/strong&gt;：小程序 -&amp;gt; 微信云链路 -&amp;gt; 云托管 Flask 容器 -&amp;gt; 发布 MQTT 消息 -&amp;gt; 树莓派收到 -&amp;gt; &lt;strong&gt;开锁成功！&lt;/strong&gt; 🔓&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr /&gt;
+&lt;h2&gt;📝 总结&lt;/h2&gt;
+&lt;p&gt;通过这次改造，我们将一个依赖本地环境的硬件项目，成功进化为了一个现代化的 IoT 应用。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Cloud (服务端)&lt;/strong&gt;：利用 Docker 实现了“一次构建，处处运行”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;WeChat (前端)&lt;/strong&gt;：利用云原生能力，实现了免配置域名的安全通信。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果你希望你的智能门锁不仅能在局域网玩，还能在上班、出差时随时查看状态，那么强烈建议你尝试这个“云托管版本”！&lt;/p&gt;
+&lt;p&gt;如有疑问，欢迎在 GitHub 提 Issue 交流：https://github.com/nihuii/raspberry-pi-smart-lock&lt;/p&gt;
 </content:encoded></item><item><title>基于树莓派的物联网全能智能门锁系统(服务器本地部署)</title><link>https://nihuii.github.io/posts/raspberry-pi-smart-lock-version1/</link><guid isPermaLink="true">https://nihuii.github.io/posts/raspberry-pi-smart-lock-version1/</guid><description>从零打造一个支持人脸识别、NFC刷卡、密码解锁以及微信小程序远程控制的智能门锁系统。</description><pubDate>Sat, 13 Dec 2025 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;最近我完成了一个基于树莓派的智能门锁项目，作为一个涵盖嵌入式开发、后端服务和移动端开发的综合性项目，它非常适合用来练手。本文将详细介绍该系统的实现原理和开发过程。&lt;/p&gt;
 &lt;/blockquote&gt;
